@@ -39,7 +39,7 @@ public class SpawnCommand implements CommandExecutor {
                             target.sendMessage(ColorUtils.color(MessageUtils.PREFIX + " &aהשתגרת לספאון!"));
                             p.sendMessage(ColorUtils.color(MessageUtils.PREFIX + " &aהשיגור של &2" + target.getDisplayName() + " &aבוצע בהצלחה!"));
                         }else{
-                            p.sendMessage(MessageUtils.PREFIX + MessageUtils.PLAYER_ERR);
+                            p.sendMessage(MessageUtils.PLAYER_ERR);
                         }
 
                     }else{
