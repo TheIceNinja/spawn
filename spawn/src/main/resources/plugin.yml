@@ -1,0 +1,16 @@
+name: Spawn
+version: '${project.version}'
+main: net.theiceninja.spawn.Main
+api-version: 1.17
+authors: [ TheIceNinja ]
+description: Spawn for my server to spawn the players
+website: github.com/theiceninja
+commands:
+  spawn:
+    description: spawn you in the spawn of the server
+    usage: /<command>
+  setspawn:
+    description: setting the spawn of the server
+    usage: /<command>
+    aliases:
+      - ss
