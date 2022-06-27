@@ -30,22 +30,26 @@ public class SpawnCommand implements CommandExecutor {
                     } else {
                         p.sendMessage(ColorUtils.color(MessageUtils.PREFIX + " &cצריך לעשות /setspawn בשביל שיהיה ספאון למקום שאתה רוצה!"));
                     }
-                }else if (args.length == 1){
-                    Player target = Bukkit.getPlayer(args[0]);
-                    Location location = plugin.getConfig().getLocation("spawn");
-                    if (location != null){
-                        if (target != null) {
-                            target.teleport(location);
-                            target.sendMessage(ColorUtils.color(MessageUtils.PREFIX + " &aהשתגרת לספאון!"));
-                            p.sendMessage(ColorUtils.color(MessageUtils.PREFIX + " &aהשיגור של &2" + target.getDisplayName() + " &aבוצע בהצלחה!"));
-                        }else{
-                            p.sendMessage(MessageUtils.PLAYER_ERR);
-                        }
+                }else if (args.length == 1) {
+                    if (p.hasPermission("spawn.spawn.other")) {
+                        Player target = Bukkit.getPlayer(args[0]);
+                        Location location = plugin.getConfig().getLocation("spawn");
+                        if (location != null) {
+                            if (target != null) {
+                                target.teleport(location);
+                                target.sendMessage(ColorUtils.color(MessageUtils.PREFIX + " &aהשתגרת לספאון!"));
+                                p.sendMessage(ColorUtils.color(MessageUtils.PREFIX + " &aהשיגור של &2" + target.getDisplayName() + " &aבוצע בהצלחה!"));
+                            } else {
+                                p.sendMessage(MessageUtils.PLAYER_ERR);
+                            }
 
+                        } else {
+                            p.sendMessage(MessageUtils.NO_SPAWN);
+                        }
                     }else{
-                        p.sendMessage(MessageUtils.NO_SPAWN);
+                        p.sendMessage(MessageUtils.NO_PERMS);
                     }
-                }
+                    }
 
 
             }else{
