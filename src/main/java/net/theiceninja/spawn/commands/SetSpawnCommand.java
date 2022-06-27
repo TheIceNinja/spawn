@@ -18,21 +18,23 @@ public class SetSpawnCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (sender instanceof Player){
-            Player p = (Player) sender;
-            if (p.hasPermission("spawn.setspawn")){
-                Location location = p.getLocation();
-                plugin.getConfig().set("spawn", location);
-                plugin.saveConfig();
-                p.sendMessage(ColorUtils.color(MessageUtils.PREFIX + " &aנשמר מיקום הספאון!"));
-
-            }else{
-                p.sendMessage(MessageUtils.PREFIX + " " + MessageUtils.NO_PERMS);
-            }
-
-        }else{
-            sender.sendMessage(MessageUtils.NOT_PLAYER);
+        if (!(sender instanceof Player)) {
+            sender.sendMessage(MessageUtils.NOT_PLAYER.getMessage());
+            return true;
         }
+
+        Player p = (Player) sender;
+
+        if (!p.hasPermission("spawn.setspawn")) {
+            p.sendMessage(MessageUtils.PREFIX.getMessage() + " " + MessageUtils.NO_PERMS);
+            return true;
+        }
+
+        Location location = p.getLocation();
+        plugin.getConfig().set("spawn", location);
+        plugin.saveConfig();
+        p.sendMessage(ColorUtils.color(MessageUtils.PREFIX.getMessage() + " &aנשמר מיקום הספאון!"));
+
         return true;
     }
 }
