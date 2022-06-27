@@ -16,13 +16,8 @@ public class RespawnListener implements Listener {
 
     @EventHandler
     public void onRespawn(PlayerRespawnEvent e){
-        Player p = e.getPlayer();
         Location location = plugin.getConfig().getLocation("spawn");
-        if (location != null){
-            e.setRespawnLocation(location);
-
-        }else{
-        }
+        if (location != null) e.setRespawnLocation(location);
 
     }
 }
