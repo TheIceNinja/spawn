@@ -48,7 +48,7 @@ public class SpawnCommand implements CommandExecutor {
                         }
                     }else{
                         p.sendMessage(MessageUtils.NO_PERMS);
-                    }
+                       }
                     }
 
 
