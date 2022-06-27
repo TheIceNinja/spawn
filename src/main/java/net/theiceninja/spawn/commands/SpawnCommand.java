@@ -54,9 +54,6 @@ public class SpawnCommand implements CommandExecutor {
                     }
                 }
 
-
-
-
         }else{
             sender.sendMessage(MessageUtils.NOT_PLAYER);
         }
