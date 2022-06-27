@@ -1,9 +1,20 @@
 package net.theiceninja.spawn.utils;
 
-public class MessageUtils {
-    public static String NOT_PLAYER = ColorUtils.color("&cYou cant do that as a console please login and do that command.");
-    public static String NO_PERMS = ColorUtils.color("&cסליחה, אבל אין לך הרשאה לפקודה הזאת!");
-    public static String PREFIX = ColorUtils.color("&7SpawnPlugin &f|");
-    public static String NO_SPAWN = ColorUtils.color(MessageUtils.PREFIX + " &cצריך לעשות /setspawn בשביל שיהיה ספאון למקום שאתה רוצה!");
-    public static String PLAYER_ERR = ColorUtils.color(MessageUtils.PREFIX + " &cשחקן זה לא מחובר/לא קיים ");
+public enum MessageUtils {
+    NOT_PLAYER("The console cannot use this command!"),
+    NO_PERMS("You don't have permission to use this command!"),
+    NO_SPAWN("There is no spawn set!"),
+    PREFIX("&6[&aSpawn&6]&r "),
+    PLAYER_ERR("Player not found!");
+
+    final String message;
+
+    MessageUtils(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
 }
+
