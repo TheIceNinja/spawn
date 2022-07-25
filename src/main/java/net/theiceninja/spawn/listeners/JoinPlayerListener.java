@@ -19,10 +19,7 @@ public class JoinPlayerListener implements Listener {
     public void onJoin(PlayerJoinEvent e){
         Player p = e.getPlayer();
         Location location = plugin.getConfig().getLocation("spawn");
-        if (location != null){
-            p.teleport(location);
+        if (location != null) p.teleport(location);
 
-        }else{
-        }
     }
 }
